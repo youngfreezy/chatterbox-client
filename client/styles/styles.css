@@ -50,13 +50,16 @@ form {
     padding: 20px;
     padding-left: 0;
     margin-bottom: 20px;
+
 }
 
 form input[type=text] {
     margin-right: 10px;
-    width: 70%;
+    width: 50%;
     font-size: 12px;
-    padding: 5px;
+    font-family: sans-serif;
+    padding: 8px;
+    border-radius: 3px;
 }
 
 .chat {
@@ -82,3 +85,5 @@ form input[type=text] {
 .spinner img {
     padding: 10px;
 }
+
+

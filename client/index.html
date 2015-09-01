@@ -5,6 +5,22 @@
     <title>chatterbox</title>
     <link rel="stylesheet" href="styles/styles.css">
 
+
+  </head>
+  <body>
+    <div id="main">
+      <h1>chatterbox</h1>
+      <div id="user">
+        <!-- <form class="userposts"> -->
+        <!-- Username: <br /> -->
+            <input type="text" name="message" id="usertext" placeholder="Press Enter to send">
+            <button id="userbutton">Submit</button>
+            <!-- <input type="submit" value="Submit"> -->
+        <!-- </form> -->
+      </div>
+    </div>
+    
+    <div id="chats"></div>
     <!-- dependencies -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
@@ -12,13 +28,5 @@
     <!-- your scripts -->
     <script src="env/config.js"></script>
     <script src="scripts/app.js"></script>
-
-  </head>
-  <body>
-    <div id="main">
-      <h1>chatterbox</h1>
-      
-    </div>
-    <div id="chats"></div>
   </body>
 </html>

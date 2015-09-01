@@ -1,10 +1,15 @@
 
 var app = {};
 
+var user;
+window.user = [];
+window.user.posts = {};
+
+
 app.init = function(){
   this.fetch();
+  user = window.location.search.slice(10);
 };
-
   app.escape = function(html) {
     return String(html)
       .replace(/&/g, '&amp;')
@@ -23,34 +28,25 @@ app.init = function(){
     var $text = $('<p></p>').text(obj.text);
     $chat.prepend($username);
     $chat.append($text);
-    $('#chats').append($chat);
+    $('#chats').prepend($chat);
   };
 
   app.send = function(obj){
-
-    return setInterval(function(){
+      var data = obj;
+      console.log("sending" + data);
       $.ajax({
       url: 'https://api.parse.com/1/classes/chatterbox',
       type: 'POST',
-      data: 'JSONP',
+      data: JSON.stringify(data),
       contentType: 'application/json',
       success: function(data) {
-        data.results.reverse();
-        for (var i = 0; i <= data.results.length; i++) {
-          var message = escape(data.results[i]);
-          if (message.username !== undefined && message.text !== undefined) {
-            // this.addMessage(message);
-        }
-          }
-        
+        console.log('chatterbox: Message sent');
       },
       error: function (data) {
         // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
-        console.error('chatterbox: Failed to load message');
+        console.error('chatterbox: Failed to send message');
       }
-    });
-    }, 1000);
-
+      });
   }
 
   app.fetch = function(){
@@ -77,11 +73,17 @@ app.init = function(){
 
     }, 3000);
   };
-  
-// $(document).ready(function() {
 
-//   // app.get();
-// })
 app.init();
+  $('#userbutton').on("click", function() {
+      console.log("I'm clicked!");
+      var content = {};
+      content.username = user;
+      content.text = $('#usertext').val();
+      console.log(content);
+      app.send(content);
+  });
+
+
 
 
