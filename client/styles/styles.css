@@ -86,4 +86,13 @@ form input[type=text] {
     padding: 10px;
 }
 
+.selector {
+    padding: 5px;
+    margin-bottom: 10px;
+
+}
+
+.selector option {
+    background-color: lightblue;
+}
 
